@@ -59,6 +59,8 @@ body {
 .knob {
   display: flex;
   position: relative;
+  height: 100px;
+  width: 100px;
 }
 .knob .ticks {
   position: absolute;
