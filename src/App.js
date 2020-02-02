@@ -18,8 +18,8 @@ class App extends React.Component {
           size={100}
           numTicks={1}
           degrees={260}
-          // min={1}
-          // max={100}
+          min={1}
+          max={10}
           value={80}
           color={true}
           onChange={this.handleChange}
@@ -29,8 +29,8 @@ class App extends React.Component {
                   size={100}
           numTicks={1}
           degrees={180}
-          // min={1}
-          // max={100}
+          min={1}
+          max={100}
           value={60}
           onChange={this.handleChange}
         />

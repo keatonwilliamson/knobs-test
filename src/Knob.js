@@ -3,7 +3,6 @@ import React from 'react';
 class Knob extends React.Component {
     constructor(props) {
       super(props);
-
       // props.degrees is a hard coded value of knobのdegree range. 
       // start and end angle are read only
       this.fullAngle = props.degrees;
@@ -42,11 +41,13 @@ class Knob extends React.Component {
       // moveHandler runs continuously on mouse movement
       const moveHandler = e => {
 
-        console.log("start angle", this.startAngle)
-        console.log("end angle", this.endAngle)
+        // console.log("start angle", this.startAngle)
+        // console.log("end angle", this.endAngle)
 
         this.currentDeg = this.getDeg(e.clientX, e.clientY, pts);
         if (this.currentDeg === this.startAngle) this.currentDeg--;
+
+        // new value is a 1-10 converted from the current degrees
         let newValue = Math.floor(
           this.convertRange(
             this.startAngle,
@@ -56,6 +57,9 @@ class Knob extends React.Component {
             this.currentDeg
           )
         );
+        console.log("new value", newValue);
+        
+        // state on knob is degrees -- state on app.js is 1-10 value
         this.setState({ deg: this.currentDeg });
         this.props.onChange(newValue);
       };
@@ -82,8 +86,15 @@ class Knob extends React.Component {
     };
   
     convertRange = (startAngle50, endAngle310, propsMin1, propsMax10, currentDegrees) => {
+      let returnedValue = (currentDegrees - startAngle50) * (propsMax10 - propsMin1) / (endAngle310 - startAngle50) + propsMin1;
+      console.log(`(${currentDegrees} - ${startAngle50}) * (${propsMax10} - ${propsMin1}) / (${endAngle310} - ${startAngle50}) + ${propsMin1} === ${returnedValue}`)
       return (currentDegrees - startAngle50) * (propsMax10 - propsMin1) / (endAngle310 - startAngle50) + propsMin1;
     };
+
+    refactoredConvertRange = (startAngle50, endAngle310, propsMin1, propsMax10, currentDegrees) => {
+      // (actual value - smallest value / biggest value - smallest value) * valueRangeTenish + smallestRange
+      return ((currentDegrees - startAngle50) / (endAngle310 - startAngle50)) * (propsMax10 - propsMin1) + propsMin1;
+    }
   
     dcpy = o => {
       return JSON.parse(JSON.stringify(o));
