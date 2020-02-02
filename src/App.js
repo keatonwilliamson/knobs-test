@@ -15,19 +15,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <Knob
-          size={100}
-          numTicks={1}
           degrees={260}
           min={1}
           max={10}
           value={80}
-          color={true}
           onChange={this.handleChange}
         />
 
         <Knob
-                  size={100}
-          numTicks={1}
           degrees={180}
           min={1}
           max={100}
