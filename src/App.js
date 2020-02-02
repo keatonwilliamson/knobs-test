@@ -6,7 +6,8 @@ import Knob from './Knob.js'
 class App extends React.Component {
   state = { value: 0 };
 
-  handleChange = newValue => {
+  handleChange = (parameter, newValue) => {
+    console.log(`${parameter} is set at ${newValue}`)
     this.setState({
       value: newValue
     });
@@ -15,6 +16,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Knob
+          parameter = "volume"
           degrees={260}
           min={1}
           max={10}
@@ -23,6 +25,7 @@ class App extends React.Component {
         />
 
         <Knob
+          parameter = "filter"
           degrees={180}
           min={1}
           max={100}

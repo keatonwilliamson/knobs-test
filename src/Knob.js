@@ -39,7 +39,7 @@ class Knob extends React.Component {
         )
       );
       this.setState({ deg: this.currentDeg });
-      this.props.onChange(newValue);
+      this.props.onChange(this.props.parameter, newValue);
     };
     document.addEventListener("mousemove", moveHandler);
     document.addEventListener("mouseup", e => {
@@ -52,7 +52,6 @@ class Knob extends React.Component {
     const x = cX - pts.x;
     const y = cY - pts.y;
     let deg = Math.atan(y / x) * 180 / Math.PI;
-    console.log("degreees", deg)
     if ((x < 0 && y >= 0) || (x < 0 && y < 0)) {
       deg += 90;
     } else {
