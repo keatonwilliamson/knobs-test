@@ -86,16 +86,51 @@ body {
   /* border-radius: 50%; */
   background-image: url('./Assets/moog-knob.png');
   background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .knob.inner .grip {
   position: absolute;
-  width: 5%;
-  height: 5%;
-  bottom: 2%;
+  width: 7%;
+  height: 7%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: #509eec;
+  background: white;
   box-shadow: 0 0 3px 1px black;
 }
 
+.pointer {
+  height: 100%;
+  width: 100%;
+}
+.pointerWrapper {
+  border: 7px solid black;
+  height: 700px;
+  width: 700px;
+  background-image: url('./Assets/pointer.png');
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pointerCenter {
+  border-radius: 100%;
+  height: 335px;
+  width: 335px;
+  position: absolute;
+  border: 7px solid rgb(254, 87, 240);
+}
+
+.metal {
+  border-radius: 100%;
+  /* border: 7px solid pink; */
+  height: 70px;
+  width: 70px;
+  background-image: url('./Assets/metal-circle-transparent.png');
+  background-position: center;
+  background-size: cover;
+}

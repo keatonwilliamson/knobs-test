@@ -14,6 +14,11 @@ class App extends React.Component {
   };
   render() {
     return (
+      // <>
+      //   <div className="pointerWrapper">
+      //     <div className="pointerCenter"></div>
+      //   </div>
+      // </>
       <div className="App">
         <Knob
           parameter = "volume"

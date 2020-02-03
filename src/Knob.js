@@ -73,9 +73,11 @@ class Knob extends React.Component {
 
   render() {
     let iStyle = this.dcpy({ transform: "rotate(" + this.state.deg + "deg)" });
+    let metalStyle = this.dcpy({ transform: "rotate(" + -this.state.deg + "deg)" });
     return (
       <div className="knob outer" onMouseDown={this.startDrag}>
         <div className="knob inner" style={iStyle}>
+          <div className="metal" style={metalStyle}></div>
           <div className="grip" />
         </div>
       </div>
